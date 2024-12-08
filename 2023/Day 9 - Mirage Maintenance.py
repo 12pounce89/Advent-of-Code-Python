@@ -3,7 +3,7 @@
 
 lines = []
 
-with open('data/day9.txt') as file:
+with open('2023/data/day9.txt') as file:
     for line in file:
         lines.append(line.strip().split())
 
@@ -38,7 +38,7 @@ print(sum)
 
 lines = []
 
-with open('data/day9.txt') as file:
+with open('2023/data/day9.txt') as file:
     for line in file:
         lines.append(line.strip().split())
 

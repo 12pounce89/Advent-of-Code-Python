@@ -2,7 +2,7 @@
 '''
 values = []
 
-with open('data/day6.txt') as file:
+with open('2023/data/day6.txt') as file:
     for line in file:
         broken_line = line.split(":")
         values.append(broken_line[1].strip().split())
@@ -29,7 +29,7 @@ print(product)
 
 values = []
 
-with open('data/day6.txt') as file:
+with open('2023/data/day6.txt') as file:
     for line in file:
         broken_line = line.split(":")
         values.append(broken_line[1].strip().split())

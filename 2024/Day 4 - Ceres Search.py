@@ -4,7 +4,7 @@
 grid = []
 count = 0
 
-with open('data/day4.txt') as file:
+with open('2024/data/day4.txt') as file:
     for line in file:
         letters = list(line)
         grid.append(letters)
@@ -51,7 +51,7 @@ print(count)
 grid = []
 count = 0
 
-with open('data/day4.txt') as file:
+with open('2024/data/day4.txt') as file:
     for line in file:
         letters = list(line)
         grid.append(letters)

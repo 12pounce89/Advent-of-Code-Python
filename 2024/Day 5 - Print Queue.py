@@ -4,7 +4,7 @@
 rules = []
 queues = []
 
-with open('data/day5.txt') as file:
+with open('2024/data/day5.txt') as file:
     for line in file:
         if line == "" or line == "\n":
             pass
@@ -40,7 +40,7 @@ print(sum)
 rules = []
 queues = []
 
-with open('data/day5.txt') as file:
+with open('2024/data/day5.txt') as file:
     for line in file:
         if line == "" or line == "\n":
             pass

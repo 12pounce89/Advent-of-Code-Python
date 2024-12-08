@@ -4,7 +4,7 @@
 map = []
 antinodes = []
 
-with open('data/day8.txt') as file:
+with open('2024/data/day8.txt') as file:
     for line in file:
         map.append(list(line.strip()))
         antinodes.append(["." for i in range(len(line.strip()))])
@@ -53,7 +53,7 @@ print("\n", sum)
 map = []
 antinodes = []
 
-with open('data/day8.txt') as file:
+with open('2024/data/day8.txt') as file:
     for line in file:
         map.append(list(line.strip()))
         antinodes.append(["." for i in range(len(line.strip()))])

@@ -26,7 +26,7 @@ def bubble_sort(a_list, comparator=increasing_comparator):
 first = []
 second = []
 
-with open('data/day1.txt') as file:
+with open('2024/data/day1.txt') as file:
     for line in file:
         first.append(line.split()[0])
         second.append(line.split()[1])
@@ -69,7 +69,7 @@ def bubble_sort(a_list, comparator=increasing_comparator):
 first = []
 second = []
 
-with open('data/day1.txt') as file:
+with open('2024/data/day1.txt') as file:
     for line in file:
         first.append(line.split()[0])
         second.append(line.split()[1])

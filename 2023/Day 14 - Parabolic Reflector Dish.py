@@ -3,7 +3,7 @@
 
 platform = []
 
-with open('data/day14.txt') as file:
+with open('2023/data/day14.txt') as file:
     for line in file:
         platform.append(list(line.strip()))
 
@@ -33,7 +33,7 @@ print(load)
 platform = []
 pastStates = dict()
 
-with open('data/tester.txt') as file:
+with open('2023/data/tester.txt') as file:
     for line in file:
         platform.append(list(line.strip()))
 

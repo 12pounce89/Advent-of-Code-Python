@@ -2,7 +2,7 @@
 '''
 bag = {'red':12, 'green':13, 'blue':14}
 sum = 0
-with open('data/day2.txt') as file:
+with open('2023/data/day2.txt') as file:
     for line in file:
         failed = False
         broken_line = line.split(":")
@@ -26,7 +26,7 @@ print(sum)
 # Part 2
 
 sum = 0
-with open('data/day2.txt') as file:
+with open('2023/data/day2.txt') as file:
     for line in file:
         bag = {'red':0, 'green':0, 'blue':0}
         broken_line = line.split(":")

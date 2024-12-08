@@ -4,7 +4,7 @@
 testValues = []
 numbers = []
 
-with open('data/day7.txt') as file:
+with open('2024/data/day7.txt') as file:
     for line in file:
         brokenLine = line.strip().split(":")
         testValues.append(int(brokenLine[0].strip()))
@@ -37,7 +37,7 @@ print(sum)
 testValues = []
 numbers = []
 
-with open('data/day7.txt') as file:
+with open('2024/data/day7.txt') as file:
     for line in file:
         brokenLine = line.strip().split(":")
         testValues.append(int(brokenLine[0].strip()))

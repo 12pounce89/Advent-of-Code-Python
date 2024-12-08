@@ -7,7 +7,7 @@ current = "AAA"
 order = ""
 nodes = dict()
 
-with open('data/day8.txt') as file:
+with open('2023/data/day8.txt') as file:
     count = 0
     for line in file:
         count += 1
@@ -38,7 +38,7 @@ current = "AAA"
 order = ""
 nodes = dict()
 
-with open('data/day8.txt') as file:
+with open('2023/data/day8.txt') as file:
     count = 0
     for line in file:
         count += 1

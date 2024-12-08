@@ -6,7 +6,7 @@ import re
 correct = []
 sum = 0
 
-with open('data/day3.txt') as file:
+with open('2024/data/day3.txt') as file:
     for line in file:
         correct += re.findall("mul\(\d+,\d+\)", line)
 
@@ -28,7 +28,7 @@ correct = []
 sum = 0
 on = True
 
-with open('data/day3.txt') as file:
+with open('2024/data/day3.txt') as file:
     for line in file:
         correct += re.findall("mul\(\d+,\d+\)|do\(\)|don't\(\)", line)
 

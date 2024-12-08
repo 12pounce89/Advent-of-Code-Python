@@ -2,7 +2,7 @@
 '''
 safe = 0
 
-with open('data/day2.txt') as file:
+with open('2024/data/day2.txt') as file:
     for report in file:
         levels = report.split()
         running = True
@@ -30,7 +30,7 @@ print(safe)
 
 safe = 0
 
-with open('data/day2.txt') as file:
+with open('2024/data/day2.txt') as file:
     for report in file:
         levels = report.split()
         running = True

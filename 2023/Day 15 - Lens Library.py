@@ -3,7 +3,7 @@
 
 import csv
 
-with open('data/day15.txt') as file:
+with open('2023/data/day15.txt') as file:
     csvReader = csv.reader(file)
     sum = 0
 
@@ -25,7 +25,7 @@ boxes = dict()
 for i in range(256):
     boxes[i] = []
 
-with open('data/day15.txt') as file:
+with open('2023/data/day15.txt') as file:
     csvReader = csv.reader(file)
 
     for line in csvReader:

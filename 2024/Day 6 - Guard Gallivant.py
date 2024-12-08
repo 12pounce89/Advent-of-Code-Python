@@ -7,7 +7,7 @@ cycles = 0
 directions = [(-1, 0), (0, 1), (1, 0), (0, -1)]
 direction = 0
 
-with open('data/day6.txt') as file:
+with open('2024/data/day6.txt') as file:
     for line in file:
         floor.append(list(line.strip()))
         visited.append(list(line.strip()))
@@ -48,7 +48,7 @@ original = 0
 directions = [(-1, 0), (0, 1), (1, 0), (0, -1)]
 direction = 0
 
-with open('data/day6.txt') as file:
+with open('2024/data/day6.txt') as file:
     for line in file:
         floor.append(list(line.strip()))
         visited.append(list(line.strip()))
