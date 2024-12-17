@@ -1,8 +1,6 @@
+'''
 # Part 1
 
-import sys
-
-sys.setrecursionlimit(9999999)
 grid = []
 grid2 = []
 moves = {0:(-1, 0), 1:(0, 1), 2:(1, 0), 3:(0, -1)}
@@ -12,18 +10,53 @@ with open('2024/data/day16.txt') as file:
         grid.append(list(line.strip()))
         grid2.append(list(line.strip()))
 
-found = False
-finishedPoints = set()
+found1, found2 = False, False
 
 for i, line in enumerate(grid):
     for j, char in enumerate(line):
         if char == "S":
             start = (i, j)
-            found = True
+            found1 = True
             break
-    if found:
+        elif char == "E":
+            end = (i, j)
+            found2 = True
+            break
+    if found1 and found2:
         break
 
+positions = [(0, start[0], start[1], 1)] #cost, y, x, direction
+visited = set()
+
+while len(positions) > 0:
+    minCost = positions[0][0]
+    minIndex = 0
+    for i in range(1, len(positions)):
+        if positions[i][0] < minCost:
+            minIndex = i
+            minCost = positions[i][0]
+    
+    cost, y, x, direction = positions.pop(minIndex)
+
+    if (y, x) == end:
+        print(cost)
+        break
+
+    if (y, x, direction) in visited:
+        continue
+    visited.add((y, x, direction))
+
+    dy, dx = moves[direction]
+    newY = y + dy
+    newX = x + dx
+    if grid[newY][newX] != "#":
+        positions.append((cost + 1, newY, newX, direction))
+    
+    positions.append((cost + 1000, y, x, (direction + 1) % 4))
+    positions.append((cost + 1000, y, x, (direction - 1) % 4))
+'''
+# Working recursive solution for part 1 examples, but doesn't work for the full input since it's too long
+'''
 def move(pos, visited=set(), facing=1, points=0):
     visited.add(pos)
     if len(finishedPoints) > 0:
@@ -58,8 +91,102 @@ def move(pos, visited=set(), facing=1, points=0):
     elif grid[y + e][x + f] == ".":
         move((y + e, x + f), visited, (facing - 1) % 4, points + 1001)
         visited.remove((y + e, x + f))
+'''
 
-move(start)
+# Part 2
 
-# print(sorted(list(finishedPoints)))
-print(min(finishedPoints))
+grid = []
+grid2 = []
+moves = {0:(-1, 0), 1:(0, 1), 2:(1, 0), 3:(0, -1)}
+
+with open('2024/data/tester.txt') as file:
+    for line in file:
+        grid.append(list(line.strip()))
+        grid2.append(list(line.strip()))
+
+found1, found2 = False, False
+
+for i, line in enumerate(grid):
+    for j, char in enumerate(line):
+        if char == "S":
+            start = (i, j)
+            found1 = True
+            break
+        elif char == "E":
+            end = (i, j)
+            found2 = True
+            break
+    if found1 and found2:
+        break
+
+positions = [(0, start[0], start[1], 1, ((start[0], start[1], 1),))] #cost, y, x, direction
+visited = set()
+onBest = set()
+bestCost = -1
+p = 0
+
+while len(positions) > 0:
+    p += 1
+    minCost = positions[0][0]
+    minIndex = 0
+    for i in range(1, len(positions)):
+        if positions[i][0] < minCost:
+            minIndex = i
+            minCost = positions[i][0]
+    
+    cost, y, x, direction, path = positions.pop(minIndex)
+
+    # if (9, 3, 1) in path and (7, 4, 1) in path:
+    #     print(cost, y, x, direction, path)
+
+    if (y, x) == end:
+        print('test', bestCost, cost)
+        if bestCost == -1:
+            bestCost = cost
+        if cost == bestCost:
+            print(path)
+            for item in path:
+                onBest.add(item)
+        continue
+
+    if bestCost != -1 and cost >= bestCost:
+        for item in path:
+            if item in visited:
+                visited.remove(item)
+        continue
+
+    if (y, x, direction) in visited:
+        if (y, x, direction) not in onBest:
+            continue
+    else:
+        visited.add((y, x, direction))
+
+    dy, dx = moves[direction]
+    newY = y + dy
+    newX = x + dx
+    if grid[newY][newX] != "#":
+        # if len(path) == 0:
+        #     path = (start, (newY, newX))
+        #     print(path)
+        # else:
+        newPath1 = path + ((newY, newX, direction),)
+        positions.append((cost + 1, newY, newX, direction, newPath1))
+    
+    newPath2 = path + ((y, x, (direction + 1) % 4),)
+    positions.append((cost + 1000, y, x, (direction + 1) % 4, newPath2))
+    newPath3 = path + ((y, x, (direction - 1) % 4),)
+    positions.append((cost + 1000, y, x, (direction - 1) % 4, newPath3))
+
+print(sorted(list(onBest)))
+print(p)
+
+bestCoords = set()
+for item in onBest:
+    bestCoords.add((item[0], item[1]))
+print(len(bestCoords))
+
+for pos in bestCoords:
+    grid2[pos[0]][pos[1]] = "O"
+
+for line in grid2:
+    print("".join(line))
