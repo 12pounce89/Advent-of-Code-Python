@@ -25,7 +25,7 @@ for i, line in enumerate(grid):
     if found1 and found2:
         break
 
-positions = [(0, start[0], start[1], 1)] #cost, y, x, direction
+positions = [(0, start[0], start[1], 1)]
 visited = set()
 
 while len(positions) > 0:
@@ -119,7 +119,7 @@ for i, line in enumerate(grid):
     if found1 and found2:
         break
 
-positions = [(0, start[0], start[1], 1, ((start[0], start[1], 1),))] #cost, y, x, direction
+positions = [(0, start[0], start[1], 1, ((start[0], start[1], 1),))]
 visited = set()
 onBest = set()
 bestCost = -1
@@ -156,8 +156,11 @@ while len(positions) > 0:
         continue
 
     if (y, x, direction) in visited:
-        if (y, x, direction) not in onBest:
-            continue
+        for item in path:
+            if item in visited:
+                visited.remove(item)
+        # if (y, x, direction) not in onBest:
+        #     continue
     else:
         visited.add((y, x, direction))
 
