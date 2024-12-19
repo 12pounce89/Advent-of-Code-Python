@@ -51,7 +51,11 @@ with open('2024/data/day18.txt') as file:
         broken = line.strip().split(",")
         positions.append((int(broken[0]), int(broken[1])))
 
-for i in range(2870, len(positions)):
+for i in range(1024):
+    a, b = positions[i]
+    grid[a][b] = "#"
+
+for i in range(1024, len(positions)):
     a, b = positions[i]
     grid[a][b] = "#"
 
